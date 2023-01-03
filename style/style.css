@@ -8,18 +8,16 @@ body{
 
 h1
 {
-    font-size: 36px;
+    font-size: 34px;
     text-transform: uppercase;
     font-weight: 900;
 }
 
 h2{
-  font-size: 30px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 800;
 }
-a{
-    color:white;
-}
+
 
 .container {
     padding: 0 15px;
@@ -98,9 +96,7 @@ a{
     align-items: center;
 }
 
-.header_phone::before{
-    content: url(/img/phone.png);
-}
+
 
 .header_phone_items{
     display: flex;
@@ -110,7 +106,18 @@ a{
 
 .header_phone_items a{
     margin: 5px;
+    color: #fff;
     text-decoration: none;
+    position: relative;
+}
+
+.header_phone_items a::before{
+  content: url(/img/phone.svg);
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 20px;
+  height: 20px;
 }
 
 .header_content {
@@ -128,6 +135,11 @@ button.order_btn {
   padding: 19px;
   font-weight: 600;
   cursor: pointer;
+}
+
+.order_btn a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
 }
 
 button.order_btn:hover {
@@ -163,7 +175,7 @@ button.order_btn:hover {
   text-align: center;
 }
 
-.benefits{
+.benefits, .order_address h3{
   text-align: center;
 }
 
@@ -178,7 +190,97 @@ button.order_btn:hover {
   max-width: 400px;
   padding: 10px;
 }
+
 img.benefit_img {
   max-width: 150px;
 }
 
+.contacts{
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+
+}
+
+.order h2{
+  text-align: center;
+}
+
+.starlink_box h2{
+  text-align: center;
+}
+
+.box_items {
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+.box_item{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.box_item img{
+  width: 150px;
+  height: 200px;
+}
+.order_phone, .order_messenger{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.order_phone a, .order_messenger a{
+  padding-top: 10px;
+  color: #fff;
+  text-decoration: none;
+  position: relative;
+}
+
+.order_phone a::before{
+    content: url(/img/phone.svg);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: -20px;
+}
+
+a.telegram, a.viber{
+  position: relative;
+}
+
+a.telegram::before{
+  content:  url(/img/Telegram_logo.svg);
+  position: absolute;
+  top: 5px;
+  left:-27px;
+  width: 25px;
+  height: 25px;
+}
+a.viber::before{
+  content:  url(/img/viber.svg);
+  position: absolute;
+  top: 5px;
+  left:-27px;
+  width: 25px;
+  height: 25px;
+}
+
+.delivery h2{
+  text-align: center;
+}
+
+.maps{
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.footer{
+  text-align: center;
+  background: rgb(68, 68, 68);
+  padding: 20px;
+}
