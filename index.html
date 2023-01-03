@@ -6,7 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script  src="/script.js"></script>
+<script>
+      $(document).ready(function() {
+          $('.form_sub').click(function(){
+              $.ajax({
+                  type: "POST", 
+                  url:"send.php",
+                  data:$('.form_modal_window').serialize(),
+                  error:function(){$("#erconts").html("Виникла помилка!");},
+                  beforeSend: function() {
+                      $("#erconts").html("<p style='color: orangered;'>Надсилаємо дані...</p>");
+                  },
+                  success: function(result){
+                      $('#erconts').html(result);
+                      checkThis();
+                  }
+              });
+              return false;
+          });
+      });
+  </script>
     <title>Starlink Ukraine</title>
+</head>
     <div class="header">
         <div class="header_bg">
             <div class="container">
@@ -15,15 +38,33 @@
                     </div>
                     <div class="header_phone">
                         <div class="header_phone_items">
-                            <a href="tel:+380504076844">+380504076844</a>
-                            <a href="tel:+380504076814">+380504076814</a>
+                            <a href="tel:+380504076844">+38 (050) 407-68-44</a>
+                            <a href="tel:+380504076814">+38 (050) 407-68-14</a>
                         </div>
                     </div>
                 </div>
                 <div class="header_content">
                     <h1>Starlink в Україні</h1>
-                    <h2>Користуйтесь інтернетом незалежно від наземних систем<br> БУДЬ ДЕ<br> ТА КОЛИ ЗАВГОДНО</h2>
+                    <h2>Користуйтесь інтернетом незалежно від наземних систем<br> БУДЬ-ДЕ<br> ТА КОЛИ ЗАВГОДНО</h2>
                     <button class="order_btn"><a href="/#orders">ЗАМОВИТИ КОМПЕКТ</a></button>
+                    <div class="modal-wrapper">
+                        <div class="head"></div>
+                        <div class="modal">
+                          <div class="content">
+                              <div class="good-job">
+                                <p class="modal_title">ЗАМОВЛЕННЯ КОМПЛЕКТУ STARLINK</p>
+                                <form class="form_modal_window" action="">
+                                  <input type="text" name="name" placeholder="Ваше і`мя*" required>
+                                  <input type="email" name="email" placeholder="Ваш email">
+                                  <input type="phone" name="phone" placeholder="Ваш телефон*" required>
+                                  <input class="form_sub" name="sub" type="submit" value="ЗАМОВИТИ">
+                                </form>
+                                <div id="erconts"></div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                       
                 </div>
 
             </div>
@@ -32,7 +73,7 @@
     <section class="how_is">
         <div class="container">
             <h2 class="title_how_is">Що таке StarLink</h2>
-            <p>Проект Starlink — це глобальна супутникова система, призначена для доступу до інтернету у важкодоступних
+            <p class="how_is_text">Проект Starlink — це глобальна супутникова система, призначена для доступу до інтернету у важкодоступних
                 куточках Землі.<br>
                 Система працює через супутники зв’язку, розташовані на низькій навколоземній орбіті (близько 500 км над
                 поверхнею). Кожен важить приблизно 250 кг і працює від сонячної батареї.
@@ -51,7 +92,7 @@
                     <div class="benefit_item"><img src="/img/fast-access.png" alt="Швидкість StarLink"
                             class="benefit_img">
                         <h3>Висока швидкість передачі даних</h3>
-                        <p>Шкидкість завантаження даних в системі StarLink може досягати - 200Мбіт/сек</p>
+                        <p>Шкидкість завантаження даних в системі StarLink може досягати - 300Мбіт/сек</p>
                     </div>
                     <div class="benefit_item"><img src="/img/satellite.png" alt="Покриття StarLink" class="benefit_img">
                         <h3>Покриття по всій планеті</h3>
@@ -74,8 +115,8 @@
                 <div class="contacts">
                     <div class="order_phone">
                         <h3>Телефон</h3>
-                        <a href="tel:+380504076844">+380504076844</a>
-                        <a href="tel:+380504076814">+380504076814</a>
+                        <a href="tel:+380504076844">+38 (050)-407-68-44</a>
+                        <a href="tel:+380504076814">+38 (050)-407-68-14</a>
                     </div>
                     <div class="order_messenger">
                         <h3>Месенджери</h3>
@@ -90,6 +131,7 @@
                         <li>Нова Почта</li>
                         <li>Укр Почта</li>
                         <li>Міст Експрес</li>
+                        <li>OLX-Доставка</li>
                     </ul>
 
                 </div>
@@ -127,13 +169,28 @@
                     </div>
                 </div>
             </div>
+            <div class="accessories">
+                <h2>Додаткове обладнання</h2>
+                <div class="accessories_items">
+                    <div class="accessories_item">
+                        <h3>ETHERNET Адаптер</h3>
+                        <div class="item_img"><img src="/img/Ethernet.png" alt="" srcset=""></div>
+                        <p>Адаптер Starlink Ethernet призначений для підключення пристрою безпосередньо до маршрутизатора Starlink для дротового підключення до Інтернету. Підтримує швидкість до 1 Гбіт/с. ПРИМІТКА. Цей продукт призначений лише для використання в приміщенні.</p>
+                    </div>
+                    <div class="accessories_item">
+                        <h3>Змінний кабель довжиною 75 ФУТІВ</h3>
+                        <div class="item_img"><img src="/img/StarlinkCable.png" alt="" srcset=""></div>
+                        <p>75-дюймовий кабель призначений для заміни стандартного 75-дюймового кабелю з комплекту Starlink у разі пошкодження.
+                            Необхідні інструменти: немає</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </section>
     <footer class="footer">
         Starlink Ukraine Shop
     </footer>
-</head>
 <body>
 </body>
 </html>
